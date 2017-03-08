@@ -13,7 +13,7 @@ dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
 LOGIN = os.environ.get('LOGIN')
-PASSWORD = os.environ('PASSWORD')
+PASSWORD = os.environ.get('PASSWORD')
 api = Api(LOGIN, PASSWORD)
 
 START = 30000
