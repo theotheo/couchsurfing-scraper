@@ -18,8 +18,8 @@ PASSWORD = os.environ.get('PASSWORD')
 api = Api(LOGIN, PASSWORD)
 
 parser = argparse.ArgumentParser(description='Scrape couchsurfing.com')
-parser.add_argument('-s', '--start', help='Start from this id', required=True)
-parser.add_argument('-c', '--count', help='Scrape this number ids', required=True)
+parser.add_argument('-s', '--start', help='Start from this id', type=int, required=True)
+parser.add_argument('-c', '--count', help='Scrape this number ids', type=int, required=True)
 
 
 DIR = 'data'  # dir to save results
