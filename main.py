@@ -22,7 +22,8 @@ parser.add_argument('-s', '--start', help='Start from this id', type=int, requir
 parser.add_argument('-c', '--count', help='Scrape this number ids', type=int, required=True)
 
 
-DIR = 'data'  # dir to save results
+DATA_DIR = 'data'  # dir to save results
+LOG_DIR = 'logs' # dir to save logs
 POOL_SIZE = 16  # number of parallel processes
 
 # TODO: seems like ugly way to catch multiprocess exceptions
@@ -39,9 +40,9 @@ if __name__ == '__main__':
     START = args.start
     COUNT = args.count
     END = START + COUNT
-    logging.basicConfig(filename='{}-{}.log'.format(START, END), level=logging.ERROR)
+    logging.basicConfig(filename='{}/{}-{}.log'.format(LOG_DIR, START, END), level=logging.ERROR)
 
-    output = open('{}/users{}-{}.json'.format(DIR, START, END), 'w', buffering=10000)
+    output = open('{}/users{}-{}.json'.format(DATA_DIR, START, END), 'w', buffering=10000)
     pool = ThreadPool(POOL_SIZE)
     ids = range(START, END)
 
